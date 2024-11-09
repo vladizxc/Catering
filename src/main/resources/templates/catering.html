@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Kasse</title>
+</head>
+<body>
+<div class="header" style="padding: 20px; background-color: gray">
+    <div>Kasse</div>
+</div>
+<div class="container" style="display: flex; margin: 20px">
+    <div class="left" style="border: 1px solid #000; padding: 10px; margin: 5px; flex:1">
+        <h3>Verfügbare Festivals</h3>
+    </div>
+
+    <div class="menu" style="border: 1px solid #000; padding: 10px; margin:5px; flex:2">
+        <div>
+            <h3>Menü</h3>
+        </div>
+        <div class="menu-item" style="display: flex; margin-bottom: 10px; justify-content: space-between">
+            <table class="ui celled table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Name</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Preis</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Hinzufügen</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">Bratwurst</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">4.99€</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">
+                        <button class="button" style="padding: 5px 10px; cursor: pointer;">Hinzufügen</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="cart" style="border: 1px solid #000000; padding: 10px; margin: 5px; flex:2">
+        <div>
+            <h3>Einkaufswagen</h3>
+        </div>
+        <div class="cart-item" style="display: flex; margin-bottom: 10px; justify-content: space-between">
+            <span>Bratwurst</span>
+            <span>4.99€</span>
+        </div>
+        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 1.2em;">5.99€</span>
+            <button class="confirm-button" style="padding: 10px; background-color: #ddd; border: none; cursor: pointer;">bestätigen</button></div>
+    </div>
+</div>
+
+</body>
+</html>
