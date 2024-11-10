@@ -29,11 +29,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr >
-                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">Bratwurst</td>
-                    <td style="padding: 8px; border-bottom: 1px solid #ddd;">4.99€</td>
+                <tr th:each="product : ${catalog}">
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;" th:text="${product.getName()}">Bratwurst</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;" th:text="${product.getPrice()}">4.99€</td>
                     <td style="padding: 8px; border-bottom: 1px solid #ddd;">
-                        <button class="button" style="padding: 5px 10px; cursor: pointer;">Hinzufügen</button>
+                        <form class="ui form" th:action="@{/cart}" method="post">
+                            <input type="hidden" name="pid" th:value="${product.getId()}" />
+                            <button class="button" style="padding: 5px 10px; cursor: pointer;">Hinzufügen</button>
+                        </form>
                     </td>
                 </tr>
                 </tbody>
@@ -46,11 +49,25 @@
             <h3>Einkaufswagen</h3>
         </div>
         <div class="cart-item" style="display: flex; margin-bottom: 10px; justify-content: space-between">
-            <span>Bratwurst</span>
-            <span>4.99€</span>
+            <table class="ui celled table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Name</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Anzahl</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #ddd;">Preis</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${cart}">
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;" th:text="${item.getProductName()}">Bratwurst</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;" th:text="${item.getQuantity()}">1</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd;" th:text="${item.getPrice()}">4.99€</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 1.2em;">5.99€</span>
+            <span style="font-size: 1.2em;" th:text="${cart.getPrice()}">5.99€</span>
             <button class="confirm-button" style="padding: 10px; background-color: #ddd; border: none; cursor: pointer;">bestätigen</button></div>
     </div>
 </div>
